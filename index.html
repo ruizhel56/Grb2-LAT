@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Grb2–LAT Single-Molecule Animation</title>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <video id="movie" autoplay muted loop playsinline controls preload="auto">
+    <source src="animation2.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+  <script>
+    const v = document.getElementById('movie');
+    v.play().catch(() => {
+      document.body.addEventListener('click', () => v.play(), { once: true });
+      document.body.addEventListener('touchstart', () => v.play(), { once: true });
+    });
+  </script>
+</body>
+</html>
